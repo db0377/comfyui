@@ -151,25 +151,26 @@ function provisioning_print_end() {
 }
 
 # Download from $1 URL to $2 file path
-# Download from $1 URL to $2 file path
 function provisioning_download() {
-    api_key="${CIVITAI_API_KEY}"
+    api_key="${CIVITAI_API_KEY}" 
     if [[ -z "${api_key}" ]]; then
         echo "Error: CIVITAI_API_KEY is not set"
         exit 1
     fi
-    echo "API Key: ${api_key:0:5}******"  # Partial API key for security
+
     echo "Downloading URL: $1"
     if [[ "$1" == *"civitai.com"* ]]; then
-        wget -d --header="Authorization: Bearer ${api_key}" --content-disposition --show-progress -e dotbytes="${3:-4M}" -P "$2" "$1"
+        url_with_key="${1}?token=${api_key}"
+        wget -qnc --content-disposition --show-progress -e dotbytes="${3:-4M}" -P "$2" "${url_with_key}"
         if [[ $? -ne 0 ]]; then
             echo "Error downloading from civit.ai URL: $1"
         fi
     else
-        wget -d --content-disposition --show-progress -e dotbytes="${3:-4M}" -P "$2" "$1"
+        wget -qnc --content-disposition --show-progress -e dotbytes="${3:-4M}" -P "$2" "$1"
         if [[ $? -ne 0 ]]; then
             echo "Error downloading from URL: $1"
         fi
     fi
 }
+
 provisioning_start
