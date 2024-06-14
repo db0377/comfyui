@@ -16,7 +16,9 @@ NODES=(
 
 CHECKPOINT_MODELS=(
     "https://huggingface.co/runwayml/stable-diffusion-v1-5/resolve/main/v1-5-pruned-emaonly.ckpt"
-    "https://civitai.com/api/download/models/443550"
+    "https://civitai.com/api/download/models/443550" #robmix-cosxl-edit
+    "https://civitai.com/api/download/models/164898" #RealESRGAN_x4plus
+    "https://civitai.com/api/download/models/339731" #RMBG-1.4
     #"https://huggingface.co/stabilityai/stable-diffusion-2-1/resolve/main/v2-1_768-ema-pruned.ckpt"
     #"https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0/resolve/main/sd_xl_base_1.0.safetensors"
     #"https://huggingface.co/stabilityai/stable-diffusion-xl-refiner-1.0/resolve/main/sd_xl_refiner_1.0.safetensors"
