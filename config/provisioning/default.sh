@@ -12,12 +12,14 @@ PYTHON_PACKAGES=(
 
 NODES=(
     "https://github.com/ltdrdata/ComfyUI-Manager"
-    "https://github.com/ZHO-ZHO-ZHO/ComfyUI-BRIA_AI-RMBG.git"
     "https://github.com/Suzie1/ComfyUI_Comfyroll_CustomNodes.git"
+    "https://github.com/ZHO-ZHO-ZHO/ComfyUI-BRIA_AI-RMBG.git"
+
     
 )
 
 CHECKPOINT_MODELS=(
+    "https://huggingface.co/briaai/RMBG-1.4/resolve/main/model.pth"
     "https://huggingface.co/runwayml/stable-diffusion-v1-5/resolve/main/v1-5-pruned-emaonly.ckpt"
     "https://civitai.com/api/download/models/443550" #robmix-cosxl-edit
     "https://civitai.com/api/download/models/164898" #RealESRGAN_x4plus
