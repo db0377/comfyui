@@ -152,7 +152,8 @@ function provisioning_print_end() {
 
 # Download from $1 URL to $2 file path
 function provisioning_download() {
-     api_key="${CIVITAI_API_KEY}" 
+    api_key="${CIVITAI_API_KEY}" 
+    echo api_key
     if [[ "$1" == *"civitai.com"* ]]; then
         wget -qnc --header="Authorization: Bearer ${api_key}" --content-disposition --show-progress -e dotbytes="${3:-4M}" -P "$2" "$1"
     else
