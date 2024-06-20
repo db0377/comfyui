@@ -14,8 +14,10 @@ NODES=(
     "https://github.com/ltdrdata/ComfyUI-Manager"
     "https://github.com/Suzie1/ComfyUI_Comfyroll_CustomNodes"
     "https://github.com/ZHO-ZHO-ZHO/ComfyUI-BRIA_AI-RMBG"
+    "https://github.com/Seedsa/Fooocus_Nodes"
 
-    
+
+
 )
 
 CHECKPOINT_MODELS=(
@@ -150,12 +152,15 @@ function provisioning_print_header() {
 }
 
 function provisioning_print_end() {
+    if [ -e "${WORKSPACE}/ComfyUI/models/checkpoints/model.pth" ]; then
+      ln -s ${WORKSPACE}/ComfyUI/models/checkpoints/model.pth ${WORKSPACE}/ComfyUI/custom_nodes/ComfyUI-BRIA_AI-RMBG/RMBG-1.4/model.pth
+    fi
     printf "\nProvisioning complete:  Web UI will start now\n\n"
 }
 
 # Download from $1 URL to $2 file path
 function provisioning_download() {
-    api_key="${CIVITAI_API_KEY}" 
+    api_key="${CIVITAI_API_KEY}"
     if [[ -z "${api_key}" ]]; then
         echo "Error: CIVITAI_API_KEY is not set"
         exit 1
