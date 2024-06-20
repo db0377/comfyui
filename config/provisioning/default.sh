@@ -155,6 +155,7 @@ function provisioning_print_end() {
     if [ -e "${WORKSPACE}/ComfyUI/models/checkpoints/model.pth" ]; then
       ln -s ${WORKSPACE}/ComfyUI/models/checkpoints/model.pth ${WORKSPACE}/ComfyUI/custom_nodes/ComfyUI-BRIA_AI-RMBG/RMBG-1.4/model.pth
     fi
+    pip install --upgrade pillow
     printf "\nProvisioning complete:  Web UI will start now\n\n"
 }
 
