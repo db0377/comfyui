@@ -15,6 +15,7 @@ NODES=(
     "https://github.com/Suzie1/ComfyUI_Comfyroll_CustomNodes"
     "https://github.com/ZHO-ZHO-ZHO/ComfyUI-BRIA_AI-RMBG"
     "https://github.com/Seedsa/Fooocus_Nodes"
+    "https://github.com/LucianoCirino/efficiency-nodes-comfyui"
 
 
 
