@@ -7,7 +7,9 @@
 # Packages are installed after nodes so we can fix them...
 
 PYTHON_PACKAGES=(
-    #"opencv-python==4.7.0.72"
+    "opencv-python==4.7.0.72"
+    "pillow=10.3.0"
+
 )
 
 NODES=(
@@ -45,8 +47,7 @@ CHECKPOINT_MODELS=(
     #"https://huggingface.co/stabilityai/stable-diffusion-2-1/resolve/main/v2-1_768-ema-pruned.ckpt"
     #"https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0/resolve/main/sd_xl_base_1.0.safetensors"
     #"https://huggingface.co/stabilityai/stable-diffusion-xl-refiner-1.0/resolve/main/sd_xl_refiner_1.0.safetensors"
-    "https://github.com/Sanster/models/releases/download/add_big_lama/big-lama.pt"
-    "https://civitai.com/api/download/models/348913"
+    "https://civitai.com/api/download/models/348913" #juggernautXL_v9Rundiffusionphoto2
 )
 
 LORA_MODELS=(
@@ -85,6 +86,12 @@ CONTROLNET_MODELS=(
     #"https://huggingface.co/webui/ControlNet-modules-safetensors/resolve/main/t2iadapter_style-fp16.safetensors"
 )
 
+  INPAINT_MODELS=(
+    "https://github.com/Sanster/models/releases/download/add_big_lama/big-lama.pt"
+
+
+  )
+
 ### DO NOT EDIT BELOW HERE UNLESS YOU KNOW WHAT YOU ARE DOING ###
 
 function provisioning_start() {
@@ -109,6 +116,9 @@ function provisioning_start() {
     provisioning_get_models \
         "${WORKSPACE}/storage/stable_diffusion/models/esrgan" \
         "${ESRGAN_MODELS[@]}"
+    provisioning_get_models \
+        "${WORKSPACE}/storage/stable_diffusion/models/inpaint" \
+        "${INPAINT_MODELS[@]}"
     provisioning_print_end
 }
 
@@ -172,8 +182,7 @@ function provisioning_print_end() {
     if [ -e "${WORKSPACE}/ComfyUI/models/checkpoints/model.pth" ]; then
       ln -s ${WORKSPACE}/ComfyUI/models/checkpoints/model.pth ${WORKSPACE}/ComfyUI/custom_nodes/ComfyUI-BRIA_AI-RMBG/RMBG-1.4/model.pth
     fi
-    pip install --upgrade pillow
-    pip install opencv-python
+
     printf "\nProvisioning complete:  Web UI will start now\n\n"
 }
 
