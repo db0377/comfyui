@@ -17,6 +17,20 @@ NODES=(
     "https://github.com/Seedsa/Fooocus_Nodes"
     "https://github.com/LucianoCirino/efficiency-nodes-comfyui"
 
+    "https://github.com/cubiq/ComfyUI_IPAdapter_plus"
+    "https://github.com/Acly/comfyui-inpaint-nodes"
+
+    "https://github.com/WASasquatch/was-node-suite-comfyui"
+    "https://github.com/ssitu/ComfyUI_UltimateSDUpscale"
+    "https://github.com/evanspearman/ComfyMath"
+    "https://github.com/twri/sdxl_prompt_styler"
+    "https://github.com/hylarucoder/comfyui-copilot"
+    "https://github.com/rgthree/rgthree-comfy"
+    "https://github.com/cubiq/ComfyUI_essentials"
+    "https://github.com/storyicon/comfyui_segment_anything"
+
+
+
 
 
 )
@@ -31,6 +45,8 @@ CHECKPOINT_MODELS=(
     #"https://huggingface.co/stabilityai/stable-diffusion-2-1/resolve/main/v2-1_768-ema-pruned.ckpt"
     #"https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0/resolve/main/sd_xl_base_1.0.safetensors"
     #"https://huggingface.co/stabilityai/stable-diffusion-xl-refiner-1.0/resolve/main/sd_xl_refiner_1.0.safetensors"
+    "https://github.com/Sanster/models/releases/download/add_big_lama/big-lama.pt"
+    "https://civitai.com/api/download/models/348913"
 )
 
 LORA_MODELS=(
@@ -157,6 +173,7 @@ function provisioning_print_end() {
       ln -s ${WORKSPACE}/ComfyUI/models/checkpoints/model.pth ${WORKSPACE}/ComfyUI/custom_nodes/ComfyUI-BRIA_AI-RMBG/RMBG-1.4/model.pth
     fi
     pip install --upgrade pillow
+    pip install opencv-python
     printf "\nProvisioning complete:  Web UI will start now\n\n"
 }
 
