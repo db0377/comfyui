@@ -8,7 +8,8 @@
 
 PYTHON_PACKAGES=(
     "opencv-python==4.7.0.72"
-    "pillow=10.3.0"
+    "pillow==10.3.0"
+    "spandrel"
 
 )
 
