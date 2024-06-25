@@ -20,6 +20,7 @@ NODES=(
     "https://github.com/Seedsa/Fooocus_Nodes"
     "https://github.com/jags111/efficiency-nodes-comfyui"
 
+    "https://github.com/kijai/ComfyUI-IC-Light"
     "https://github.com/cubiq/ComfyUI_IPAdapter_plus"
     "https://github.com/Acly/comfyui-inpaint-nodes"
 
@@ -32,13 +33,20 @@ NODES=(
     "https://github.com/cubiq/ComfyUI_essentials"
     "https://github.com/storyicon/comfyui_segment_anything"
 
-
-
-
-
+    "https://github.com/ltdrdata/ComfyUI-Impact-Pack"
+    "https://github.com/Fannovel16/comfyui_controlnet_aux"
+    "https://github.com/sipherxyz/comfyui-art-venture"
+    "https://github.com/jamesWalker55/comfyui-various"
+    "https://github.com/theUpsider/ComfyUI-Logic"
+    "https://github.com/M1kep/ComfyLiterals"
+    "https://github.com/kijai/ComfyUI-KJNodes"
+    "https://github.com/kijai/ComfyUI-SUPIR"
+    #"https://github.com/kijai/ComfyUI-IC-Light"
+    "https://github.com/kadirnar/ComfyUI-YOLO"
 )
 
 CHECKPOINT_MODELS=(
+    "https://huggingface.co/lllyasviel/ic-light/resolve/main/iclight_sd15_fc.safetensors"
     "https://huggingface.co/briaai/RMBG-1.4/resolve/main/model.pth"
     "https://huggingface.co/runwayml/stable-diffusion-v1-5/resolve/main/v1-5-pruned-emaonly.ckpt"
     "https://civitai.com/api/download/models/443550" #robmix-cosxl-edit
@@ -48,7 +56,9 @@ CHECKPOINT_MODELS=(
     #"https://huggingface.co/stabilityai/stable-diffusion-2-1/resolve/main/v2-1_768-ema-pruned.ckpt"
     #"https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0/resolve/main/sd_xl_base_1.0.safetensors"
     #"https://huggingface.co/stabilityai/stable-diffusion-xl-refiner-1.0/resolve/main/sd_xl_refiner_1.0.safetensors"
-    "https://civitai.com/api/download/models/348913" #juggernautXL_v9Rundiffusionphoto2
+    #"https://civitai.com/api/download/models/348913" #juggernautXL_v9Rundiffusionphoto2
+    "https://huggingface.co/erohinem/SDXL/resolve/bb3b7fa6598742f81f3eae359fe39165ba29e6dd/juggernautXL_v9Rdphoto2Lightning.safetensors" #juggernautXL_v9Rdphoto2Lightning.safetensors
+    "https://civitai.com/api/download/models/160989" #epiCRealism NaturalSin
 )
 
 LORA_MODELS=(
@@ -69,7 +79,7 @@ ESRGAN_MODELS=(
 
 CONTROLNET_MODELS=(
     "https://huggingface.co/webui/ControlNet-modules-safetensors/resolve/main/control_canny-fp16.safetensors"
-    #"https://huggingface.co/webui/ControlNet-modules-safetensors/resolve/main/control_depth-fp16.safetensors"
+    "https://huggingface.co/webui/ControlNet-modules-safetensors/resolve/main/control_depth-fp16.safetensors"
     "https://huggingface.co/kohya-ss/ControlNet-diff-modules/resolve/main/diff_control_sd15_depth_fp16.safetensors"
     #"https://huggingface.co/webui/ControlNet-modules-safetensors/resolve/main/control_hed-fp16.safetensors"
     #"https://huggingface.co/webui/ControlNet-modules-safetensors/resolve/main/control_mlsd-fp16.safetensors"
@@ -197,8 +207,7 @@ function provisioning_download() {
 
     echo "Downloading URL: $1"
     if [[ "$1" == *"civitai.com"* ]]; then
-        url_with_key="${1}?token=${api_key}"
-        wget -qnc --content-disposition --show-progress -e dotbytes="${3:-4M}" -P "$2" "${url_with_key}"
+        wget -qnc --content-disposition --show-progress -e dotbytes="${3:-4M}" -P "$2" "${1}?token=${api_key}"
         if [[ $? -ne 0 ]]; then
             echo "Error downloading from civit.ai URL: $1"
         fi
