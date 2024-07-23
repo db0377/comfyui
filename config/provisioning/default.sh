@@ -14,6 +14,7 @@ PYTHON_PACKAGES=(
 )
 
 NODES=(
+    "https://github.com/Acly/comfyui-tooling-nodes.git"
     "https://github.com/ltdrdata/ComfyUI-Manager"
     "https://github.com/Suzie1/ComfyUI_Comfyroll_CustomNodes"
     "https://github.com/ZHO-ZHO-ZHO/ComfyUI-BRIA_AI-RMBG"
