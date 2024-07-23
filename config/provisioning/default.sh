@@ -41,7 +41,6 @@ NODES=(
     "https://github.com/M1kep/ComfyLiterals"
     "https://github.com/kijai/ComfyUI-KJNodes"
     "https://github.com/kijai/ComfyUI-SUPIR"
-    #"https://github.com/kijai/ComfyUI-IC-Light"
     "https://github.com/kadirnar/ComfyUI-YOLO"
 )
 
@@ -49,7 +48,9 @@ CHECKPOINT_MODELS=(
     "https://huggingface.co/lllyasviel/ic-light/resolve/main/iclight_sd15_fc.safetensors"
     "https://huggingface.co/briaai/RMBG-1.4/resolve/main/model.pth"
     "https://huggingface.co/runwayml/stable-diffusion-v1-5/resolve/main/v1-5-pruned-emaonly.ckpt"
-    "https://civitai.com/api/download/models/443550" #robmix-cosxl-edit
+    #"https://civitai.com/api/download/models/443550" #robmix-cosxl-edit
+    "https://civitai.com/api/download/models/642159?type=Model&format=SafeTensor&size=pruned&fp=fp16" #robmix-cosxl-edit new  CosXL Zenith v2.0
+
     "https://civitai.com/api/download/models/164898" #RealESRGAN_x4plus
     "https://civitai.com/api/download/models/339731" #RMBG-1.4
     "https://civitai.com/api/download/models/552771" #sd3
@@ -59,6 +60,8 @@ CHECKPOINT_MODELS=(
     #"https://civitai.com/api/download/models/348913" #juggernautXL_v9Rundiffusionphoto2
     "https://huggingface.co/erohinem/SDXL/resolve/bb3b7fa6598742f81f3eae359fe39165ba29e6dd/juggernautXL_v9Rdphoto2Lightning.safetensors" #juggernautXL_v9Rdphoto2Lightning.safetensors
     "https://civitai.com/api/download/models/160989" #epiCRealism NaturalSin
+    "https://huggingface.co/lllyasviel/ic-light/resolve/main/iclight_sd15_fc.safetensors"
+
 )
 
 LORA_MODELS=(
