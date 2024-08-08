@@ -20,6 +20,7 @@ NODES=(
     "https://github.com/ZHO-ZHO-ZHO/ComfyUI-BRIA_AI-RMBG"
     "https://github.com/Seedsa/Fooocus_Nodes"
     "https://github.com/jags111/efficiency-nodes-comfyui"
+    "https://github.com/john-mnz/ComfyUI-Inspyrenet-Rembg"
 
     "https://github.com/kijai/ComfyUI-IC-Light"
     "https://github.com/cubiq/ComfyUI_IPAdapter_plus"
@@ -49,7 +50,8 @@ CHECKPOINT_MODELS=(
     "https://huggingface.co/lllyasviel/ic-light/resolve/main/iclight_sd15_fc.safetensors"
     "https://huggingface.co/briaai/RMBG-1.4/resolve/main/model.pth"
     "https://huggingface.co/runwayml/stable-diffusion-v1-5/resolve/main/v1-5-pruned-emaonly.ckpt"
-    #"https://civitai.com/api/download/models/443550" #robmix-cosxl-edit
+    "https://civitai.com/api/download/models/443550" #robmix-cosxl-edit
+    "https://civitai.com/api/download/models/594099"
     "https://civitai.com/api/download/models/642159?type=Model&format=SafeTensor&size=pruned&fp=fp16" #robmix-cosxl-edit new  CosXL Zenith v2.0
 
     "https://civitai.com/api/download/models/164898" #RealESRGAN_x4plus
