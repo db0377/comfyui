@@ -148,15 +148,27 @@ function provisioning_get_nodes() {
             if [[ ${AUTO_UPDATE,,} != "false" ]]; then
                 printf "Updating node: %s...\n" "${repo}"
                 ( cd "$path" && git pull )
+
+                # Checkout specific commit for comfyui-tooling-nodes
+                if [[ "${repo}" == *"comfyui-tooling-nodes"* ]]; then
+                    ( cd "$path" && git checkout 2ae9eec23ea896087c2bff0ee5464e57f5f8635e )
+                fi
+
                 if [[ -e $requirements ]]; then
-                    micromamba -n comfyui run ${PIP_INSTALL} -r "$requirements"
+                   pip_install -r "$requirements"
                 fi
             fi
         else
             printf "Downloading node: %s...\n" "${repo}"
             git clone "${repo}" "${path}" --recursive
+
+            # Checkout specific commit for comfyui-tooling-nodes
+            if [[ "${repo}" == *"comfyui-tooling-nodes"* ]]; then
+                ( cd "$path" && git checkout 2ae9eec23ea896087c2bff0ee5464e57f5f8635e )
+            fi
+
             if [[ -e $requirements ]]; then
-                micromamba -n comfyui run ${PIP_INSTALL} -r "${requirements}"
+                pip_install -r "${requirements}"
             fi
         fi
     done
